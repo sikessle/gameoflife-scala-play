@@ -1,7 +1,24 @@
-@(message: String)
+@(gameIds: Iterable[String])
 
-@main("Welcome to Play") {
+@main("Game Of Life", isGame = false) {
 
-    @play20.welcome(message)
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12">
+            
+                @if(gameIds.nonEmpty) {
+	                <h4>Choose a game</h4>
+	                
+	                <ul>
+	                    @for(game <- gameIds) {
+	                        <li><a href="@routes.Application.playGame(game)">@game</a></li>
+	                    }
+	                </ul>
+                }
+
+	        </div> <!-- .col -->
+	    </div> <!-- .row -->
+    </div> <!-- .container -->
 
 }
