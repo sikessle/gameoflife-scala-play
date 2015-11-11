@@ -21,6 +21,7 @@ class GameOfLifeActor extends Actor with Observer {
       textView.readAndInterpretFromArgument(cmd.as[String])
     case  addOutSocket: AddOutSocket =>
       outSockets += addOutSocket.outSocket
+      // Init
       update(null, null)
   }
 
