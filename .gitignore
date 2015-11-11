@@ -18,7 +18,7 @@ project/project
 target
 tmp
 dist
-/.idea
+.idea/workspace.xml
 /out
 /.idea_modules
 /.classpath
