@@ -2,14 +2,12 @@ package controllers
 
 import java.util.UUID
 
-import akka.actor.{Props, ActorRef, ActorSystem}
+import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.util.Timeout
 import play.api.Play.current
-import play.api.libs.iteratee.{Enumerator, Iteratee}
 import play.api.libs.json._
 import play.api.libs.ws.WS
 import play.api.mvc._
-import scala.concurrent.ExecutionContext.Implicits.global
 
 import scala.collection.mutable
 import scala.concurrent.duration._
@@ -69,6 +67,6 @@ object Application extends Controller {
     val game = getGameActorByGameId(gameId).get
     game ! AddOutSocket(out)
     Props(new WebSocketActor(game))
-}
+  }
 
 }
