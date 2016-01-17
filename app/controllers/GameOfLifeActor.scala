@@ -4,6 +4,7 @@ import java.util.{Observable, Observer}
 
 import akka.actor.{Actor, ActorRef}
 import org.sikessle.gameoflife.controller.impl.GridControllerImpl
+import org.sikessle.gameoflife.view.gui.SwingView
 import org.sikessle.gameoflife.view.text.TextView
 import play.api.libs.json.JsValue
 
@@ -11,6 +12,7 @@ class GameOfLifeActor extends Actor with Observer {
 
   val controller = new GridControllerImpl()
   val textView = new TextView(controller)
+  val swingView = new SwingView(controller)
   val outSockets = new scala.collection.mutable.HashSet[ActorRef]
 
   controller.addObserver(this)
